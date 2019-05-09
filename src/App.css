@@ -22,6 +22,7 @@ body {
 
 input {
   margin: 0 1em;
+  width: 5rem;
 }
 
 .error-box,
@@ -50,4 +51,11 @@ input {
   color: #eee;
   padding: 10px 20px;
   border-radius: 20px;
+}
+
+footer {
+  font-size: 13px;
+  position: fixed;
+  bottom: 1rem;
+  width: 100vw;
 }

@@ -127,6 +127,7 @@ function App() {
           </div>
         )
       }
+      <footer>Made by Rishav Chaudhary & Kabir Bhal</footer>
     </div>
   );
 }
