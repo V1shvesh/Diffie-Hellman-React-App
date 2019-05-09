@@ -1,0 +1,47 @@
+clc;%Clear command window
+disp('Diffie Hellman Key Exchange');
+disp('-----------------------------------------');
+clear all; close all;%Clear variables in workspace and close figure
+
+%Input value of g and p, and ensure that g and p is prime
+prime = 0;
+while prime == 0
+    g = input('Enter first prime number g: ');
+    p = input('Enter the second prime number p: ');
+    pg = isprime(g);
+    pp = isprime(p);
+    if pg == 0
+        disp('g is not prime');
+    end
+    if pp == 0
+        disp('p is not prime');
+    end
+    prime = pg & pp;
+end
+
+disp('---Value of X---');
+xa = randi([1 p-1]);%Calculate value of Xa
+xb = randi([1 p-1]);%Calculate value of Xb
+
+disp(['value (Xa) is: ' num2str(xa)]);%Convert xa to string and display it
+disp(['value (Xb) is: ' num2str(xb)]);%Convert xb to string and display it
+
+disp('---value of Y---');
+%Calculate value of Ya and Yb
+ya = power(g,xa);
+ya = mod(ya,p);
+yb = power(g,xb);
+yb = mod(yb,p);
+
+disp(['Value (Ya) is: ' num2str(ya)]);%Convert ya to string and display it
+disp(['Value (Yb) is: ' num2str(yb)]);%Convert yb to string and display it
+
+disp('---Value Shared Key---');
+%Calculate shared key
+ha = power(yb,xa);
+ha = mod(ha,p);
+hb = power(ya,xb);
+hb = mod(hb,p);
+
+disp(['Value (Shared Key A) is: ' num2str(ha)]);%Convert ha to string and display it
+disp(['Value (Shared Key B) is: ' num2str(hb)]);%Convert bb to string and display it
